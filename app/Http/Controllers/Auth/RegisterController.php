@@ -41,6 +41,8 @@ class RegisterController extends Controller
 
     public function register(Request $request){
 
+        return view('auth.register');
+
         $request->validate([
             'username' => 'required|unique:users|min:2,max:12',
             'mail' => 'required|email:strict,dns|min:5,max:40',
@@ -61,7 +63,7 @@ class RegisterController extends Controller
 
             return redirect('added');
         }
-        return view('auth.register');
+        return view('auth.login');
     }
 
     public function added(){
