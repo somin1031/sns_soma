@@ -5,7 +5,7 @@
 {!! Form::open(['url' => '/added']) !!}
 
 <div id="clear">
-  <p>{{ $request->username }}さん</p>
+  <p>{{ session('username') }}さん</p>
   <p>ようこそ！AtlasSNSへ！</p>
   <p>ユーザー登録が完了しました。</p>
   <p>早速ログインをしてみましょう。</p>

@@ -41,19 +41,22 @@ class RegisterController extends Controller
 
     public function register(Request $request){
 
-       $username = $request->input('username');
-       $mail = $request->input('mail');
-       $password = $request->input('password');
+        if ($request->isMethod('post')) {
+            $username = $request->input('username');
+            $mail = $request->input('mail');
+            $password = $request->input('password');
 
-       User::create([
+        User::create([
             'username' => $username,
             'mail' => $mail,
-            'password' => $password
+            'password' => bcrypt($password),
         ]);
 
-       return back();
+        return redirect('added')->with('username', $username);
+  }
 
-    }
+  return view('auth.register');
+}
 
     public function added(){
         return view('auth.added');
