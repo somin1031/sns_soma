@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request){
+    public function store(Request $request){
 
         if ($request->isMethod('post')) {
             $username = $request->input('username');

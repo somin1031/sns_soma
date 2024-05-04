@@ -23,8 +23,8 @@
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', [RegisterController::class,'create']);
+Route::post('/register', [RegisterController::class,'store']);
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
@@ -39,3 +39,5 @@ Route::get('/search','UsersController@index');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
+
+Route::get('/logout','Auth\LoginController@logout');
