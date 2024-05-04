@@ -33,11 +33,11 @@ Route::post('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 Route::post('/top','PostsController@index');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','UsersController@profile')->middleware('auth');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@index')->middleware('auth');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','PostsController@index')->middleware('auth');
+Route::get('/follower-list','PostsController@index')->middleware('auth');
 
 Route::get('/logout','Auth\LoginController@logout');
