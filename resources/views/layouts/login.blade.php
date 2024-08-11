@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
 <meta charset="utf-8" />
     <!--IEブラウザ対策-->
@@ -8,13 +8,14 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
-    <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
-    <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
-    <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
-    <link rel="icon" href="画像URL" sizes="62x62" type="image/png" />
+    <link rel="icon" href="{{ asset('images') }}" sizes="16x16" type="image/png" />
+    <link rel="icon" href="{{ asset('images') }}" sizes="32x32" type="image/png" />
+    <link rel="icon" href="{{ asset('images') }}" sizes="48x48" type="image/png" />
+    <link rel="icon" href="{{ asset('images') }}" sizes="62x62" type="image/png" />
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
@@ -22,16 +23,30 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
+        <h1><a href="{{URL::to('/top')}}"><img src="images/atlas.png"></a></h1>
+            <div id="header-menu">
                 <div id="">
                     <p>{{ session('username') }}さん<img src="images/arrow.png"></p>
                 <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
+
+                <div class="accordion">
+                    <button type="submit" class="menu-btn">
+                        <span></span>
+                    </button>
+
+                    <nav class="menu">
+                        <div class="menu-wrapper">
+                            <ul>
+                                <li class="menu-item"><a href="/top">ホーム</a></li>
+                                <li class="menu-item"><a href="/profile">プロフィール</a></li>
+                                <li class="menu-item"><a href="/logout">ログアウト</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <script src="{{ asset('/app/public/js/script.js') }}"></script>
+
             </div>
         </div>
     </header>

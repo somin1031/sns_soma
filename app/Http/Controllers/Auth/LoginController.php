@@ -46,14 +46,18 @@ class LoginController extends Controller
             // ログインが成功したら、トップページへ
             //↓ログイン条件は公開時には消すこと
             if(Auth::attempt($data)){
-                return redirect('/top');
+                return redirect('/top')->with($data);
             }
         }
         return view("auth.login");
     }
 
-    protected function guard()
+    /*protected function guard()
     {
         return Auth::guard('guard-mail');
+    }*/
+
+    protected function loggedOut(Request $request){
+        return redirect('login');
     }
 }
