@@ -9,50 +9,59 @@ header {
     background: #186ac1;
 }
 
-.menu {
-    display: block;
-    z-index: 2;
-    padding: 10px 20px;
-    transform: translateY(-500px);
-    transition: .5s ease-in-out;
+.menu-btn {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    border: none;
+    background-color: #186ac1;
+    outline: initial;
 }
 
-.menu ul {
+.button {
     display: block;
+    position: absolute;
+    content: "";
+    top: 10px;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    transform: rotate(135deg);
+    border-top: 1px solid #fff;
+    border-right: 1px solid #fff;
+    transition: 0.3s ease;
 }
 
-.menu.active {
-    transform: translateY(500px);
-    transition: .5s ease-in-out;
+.button.active {
+    transform: rotate(315deg);
 }
 
 .menu-btn {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+    top: 60px;
 }
 
-.menu-btn span {
+.menu {
     display: block;
-    width: 20px;
-    height: 20px;
-    border: none;
-    background-color: #186ac1;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    transform: translate(-50%, -40%) rotate(135deg);
-    border-top: 1px solid #fff;
-    border-right: 1px solid #fff;
-    transition: 0.3s ease-in-out;
+    position: fixed;
+    z-index: 2;
+    padding: 20px;
+    height: 100vh;
+    right: 20px;
+    transform: translateY(-100%);
+    transition: .3s ease-in-out;
 }
 
-.menu-btn.active span {
-    top: 45%;
-    transform: rotate(-45deg);
+.menu-item {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
 }
 
+.menu.active {
+    transform: translateY(5%);
+}
 
 /* main content */
 #row {

@@ -8,7 +8,6 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
-    <script src="https://code.jquery.com/jquery.min.js"></script>
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -21,18 +20,20 @@
     <!--OGPタグ/twitterカード-->
 </head>
 <body>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
     <header>
         <div id = "head">
         <h1><a href="{{URL::to('/top')}}"><img src="images/atlas.png"></a></h1>
             <div id="header-menu">
                 <div id="">
-                    <p>{{ session('username') }}さん<img src="images/arrow.png"></p>
+                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
                 <div>
 
-                <div class="accordion">
-                    <button type="submit" class="menu-btn">
-                        <span></span>
-                    </button>
+                <div class="menu-btn">
+                    <div class="button">
+                        <span class="inn"></span>
+                    </div>
 
                     <nav class="menu">
                         <div class="menu-wrapper">
@@ -44,9 +45,6 @@
                         </div>
                     </nav>
                 </div>
-
-                <script src="{{ asset('/app/public/js/script.js') }}"></script>
-
             </div>
         </div>
     </header>
